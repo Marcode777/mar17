@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="SwoleApp">
+<head>
+ <title>ANGULAR ---Getting Swole With Code</title>
+</head>
+<body>
+<div id="wrapper">
+   <section ng-controller="SwoleAppController">
+     <h1>{{Getting the Swole with Code}}</h1>
+     <div>{{exercise group}}</div>
+     <form>
+       <select id="mySelect">
+         <option>test1</option>
+         <option>test2</option>
+         <option>test3</option>
+         <option>test4</option>
+       </select>
+     </form>
+     <input type="text" placeholder="Choose a Muscle Group" ng-model="GymApp.musclegroup">
+     <input type="text" placeholder="Exercise Name" ng-model="GymApp.Exercise">
+     <input type="date" placeholder="mm/dd/yyyy" ng-model="GymApp.Date">
+     <input type="text" placeholder="Weight" ng-model="GymApp.weight">
+     <input type="text" placeholder="Reps" ng-model="GymApp.reps">
+     <button type="submit">Add</button>
+   </section>
+ </div>
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script> <!--this angular module should version should be less than 2-->
+ <script type="text/javascript" src="swoleApp.js"></script>
+</body>
+</html>

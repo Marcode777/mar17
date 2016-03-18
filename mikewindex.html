@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="getSwole">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div id="wrapper" ng-controller="WorkoutListController">
+    <h1>{{ title }}</h1>
+    <div>
+
+      <form ng-submit="addWorkout()">
+        <select name="repeatSelect" id="repeatSelect" ng-model="exercise.muscleGroup">
+          <option value="">---Choose a Muscle Group---</option>
+          <option ng-repeat="group in exerciseGroups" value="{{group}}">
+            {{ group }}
+          </option>
+        </select>
+        <input type="text" ng-model="exercise.name" placeholder="Exercise Name">
+        <input type="date" ng-model="exercise.date" >
+        <input type="number" ng-model="exercise.weight" placeholder="Weight">
+        <input type="number" ng-model="exercise.reps" placeholder="Reps">
+
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+      <div ng-hide="workouts[0]">Add a workout!</div>
+      <table ng-show="workouts[0]">
+        <tr>
+          <th>Date</th>
+          <th>Muscle Group</th>
+          <th>Exercise</th>
+          <th>Weight</th>
+          <th>Reps</th>
+        </tr>
+        <tr ng-repeat="workout in workouts">
+          <td>{{ workout.date | date }}</td>
+          <td>{{ workout.muscleGroup }}</td>
+          <td>{{ workout.name }}</td>
+          <td>{{ workout.weight }}</td>
+          <td>{{ workout.reps }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
